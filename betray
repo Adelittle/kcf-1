@@ -12,7 +12,7 @@ fi
 
 list(){
 	IFS=$'\n'
-	for SITE in $(cat $LISTS); do
+	for SITE in $(cat $LISTS%$'\r'); do
 		echo "Scanning >>> ${SITE}"
 			for vuln in $(cat vuln.txt); do
 			string=$(echo $vuln | cut -f 1 | tr -d '\r');
