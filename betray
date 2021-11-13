@@ -12,13 +12,14 @@ fi
 
 list(){
 	IFS=$'\n'
-	for SITE in $(cat $LISTS%$'\r'); do
+	for SITE in $(cat $LISTS); do
 		echo "Scanning >>> ${SITE}"
+		situs=$(echo $SITE | cut -f 1 | tr -d '\r');
 			for vuln in $(cat vuln.txt); do
 			string=$(echo $vuln | cut -f 1 | tr -d '\r');
 
 		
-	if [[ $(curl --connect-timeout 5 --max-time 5 -A "Mozilla/5.0 (Linux; Android 7.0; SAMSUNG SM-N920C Build/NRD90M) AppleWebKit/537.36 (KHTML, like Gecko) SamsungBrowser/6.2 Chrome/56.0.2924.87 Mobile Safari/537.36" -L -s "https://${SITE%$'\r'}${string%$'\r'}" ) =~ 'Unknown error' ]]; then
+	if [[ $(curl --connect-timeout 5 --max-time 5 -A "Mozilla/5.0 (Linux; Android 7.0; SAMSUNG SM-N920C Build/NRD90M) AppleWebKit/537.36 (KHTML, like Gecko) SamsungBrowser/6.2 Chrome/56.0.2924.87 Mobile Safari/537.36" -L -s "https://${situs}${string}" ) =~ 'Unknown error' ]]; then
 		echo "[+] VULN: ${SITE}${string}"
 		curl "https://api.telegram.org/bot{2125246923:AAGdbu32Ysjdtzn96aI-BT7SQrxwXnAQ2qY}/sendMessage?text={https://${SITE}${string}}&chat_id={1851935675}"
 	else
