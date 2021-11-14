@@ -23,7 +23,7 @@ list(){
 	done
 	wait
 }
-list
 
+export -f list
 echo -e "===============[Let's Go!]==============="
 sort -u $LISTS | xargs -P 50 -n1 bash -c 'list "$@"' _
