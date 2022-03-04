@@ -18,8 +18,9 @@ list(){
 			string=$(echo $vuln | cut -f 1 | tr -d '\r');
 
 		
-	if [[ $(curl --connect-timeout 2 --max-time 2 -A "Mozilla/5.0 (Linux; Android 7.0; SAMSUNG SM-N920C Build/NRD90M) AppleWebKit/537.36 (KHTML, like Gecko) SamsungBrowser/6.2 Chrome/56.0.2924.87 Mobile Safari/537.36" -L -s "https://${SITE}${string}" ) =~ 'Unknown error' ]]; then
+	if [[ $(curl --connect-timeout 2 --max-time 2 -A "Mozilla/5.0 (Linux; Android 7.0; SAMSUNG SM-N920C Build/NRD90M) AppleWebKit/537.36 (KHTML, like Gecko) SamsungBrowser/6.2 Chrome/56.0.2924.87 Mobile Safari/537.36" -L -I -s "https://${SITE}${string}" ) =~ '200' ]]; then
 		echo "[+] VULN: ${SITE}${string}"
+		echo "https://${SITE}${string}" >> scan_res.txt
 		curl "https://api.telegram.org/bot{2125246923:AAGdbu32Ysjdtzn96aI-BT7SQrxwXnAQ2qY}/sendMessage?text={https://${SITE}${string}}&chat_id={1851935675}"
 	else
 		echo "NOT VULN: ${SITE}${string}"
