@@ -143,6 +143,7 @@
 /mysql-admin/
 /.git
 /git
+/.gitignore
 /wp-content/themes/.git/
 /blog/wp-content/.git/
 /blogs/wp-content/.git/
