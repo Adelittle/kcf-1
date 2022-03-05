@@ -1,4 +1,5 @@
 /
+/wp-content/uploads/file-manager/log.txt
 /xmlrpc.php
 //xmlrpc.php
 /blog/xmlrpc.php
