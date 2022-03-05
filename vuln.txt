@@ -1,4 +1,7 @@
 /
+/config/databases.yml
+/config/
+/cgi-bin/.%%%25%33%32%25%36%35/.%%%25%33%32%25%36%35/.%%%25%33%32%25%36%35/.%%%25%33%32%25%36%35/.%%%25%33%32%25%36%35/.%%%25%33%32%25%36%35/etc/passwd
 /.bashrc
 /wp-content/uploads/file-manager/log.txt
 /blog/wp-content/uploads/file-manager/log.txt
@@ -230,4 +233,5 @@
 /phpinfo
 /phpinfo.php
 /php.ini
-sql
+/mysql_db/
+/sql.gz
