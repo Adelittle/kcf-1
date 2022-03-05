@@ -180,6 +180,7 @@
 /storage/logs/laravel.log/
 /vendor/
 /scripts/
+/script
 /trace
 /env
 /mappings
