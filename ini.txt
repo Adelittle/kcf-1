@@ -23,7 +23,7 @@ list(){
 		echo "https://${SITE}${string}" >> scan_res.txt
 		wget "https://api.screenshotmachine.com/?key=1a4e2e&url=https://${SITE}${string}&dimension=1024x768" -O ss.jpg
 		curl "https://api.telegram.org/bot{2125246923:AAGdbu32Ysjdtzn96aI-BT7SQrxwXnAQ2qY}/sendMessage?text={https://${SITE}${string}}&chat_id={1851935675}"
-		curl ""https://api.telegram.org/bot{2125246923:AAGdbu32Ysjdtzn96aI-BT7SQrxwXnAQ2qY}/sendPhoto" -F chat_id=1851935675 -F photo="@ss.jpg""
+		curl "https://api.telegram.org/bot{2125246923:AAGdbu32Ysjdtzn96aI-BT7SQrxwXnAQ2qY}/sendPhoto" -F chat_id=1851935675 -F photo="@ss.jpg"
 	else
 		echo "NOT VULN: ${SITE}${string}"
 	fi
