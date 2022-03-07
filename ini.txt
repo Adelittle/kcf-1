@@ -1,4 +1,3 @@
-
 #!/bin/bash
 #openredirect Mass Scanner By Adelittle
 #0byte,IDX,ISD-Team
