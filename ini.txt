@@ -18,7 +18,7 @@ list(){
 			string=$(echo $vuln | cut -f 1 | tr -d '\r');
 
 		
-	if [[ $(curl --connect-timeout 2 --max-time 2 -A "Mozilla/5.0 (Linux; Android 7.0; SAMSUNG SM-N920C Build/NRD90M) AppleWebKit/537.36 (KHTML, like Gecko) SamsungBrowser/6.2 Chrome/56.0.2924.87 Mobile Safari/537.36" -L -s "https://${SITE}${string}" ) =~ 'DB_HOST' ]]; then
+	if [[ $(curl -A "Mozilla/5.0 (X11; Ubuntu; Linux x86_64; rv:65.0) Gecko/20100101 Firefox/65.0" -o /dev/null -s -w "%{http_code}\n" "https://${SITE}${string}" ) =~ '200' ]]; then
                 echo "[+] VULN: ${SITE}${string}"
                 echo "https://${SITE}${string}" >> scan_res.txt
                 wget "https://capture-website-api.herokuapp.com/capture?url=${SITE}${string}" -O ss.jpg
